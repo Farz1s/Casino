@@ -41,7 +41,7 @@ def black_jack(day_balance, bet):
                     break
                 pl_card = choice(cards)
             cards.remove(pl_card)
-            if pl_card==11 and dil_table+11>21:
+            if pl_card==11 and pl_table+11>21:
                 pl_table+=1
             else:
                 pl_table += pl_card            
@@ -83,7 +83,7 @@ def black_jack(day_balance, bet):
             return
         answer = input("Вы хотите взять еще 1 карту?\n")
     
-    while dil_table < pl_table and (pl_table!=dil_table and checker()<0.5 ):
+    while dil_table < pl_table and (pl_table!=dil_table and checker(cards,dil_table)<0.5 ):
         give_card(1)
         if dil_table > 21:
             print("У диллера перебор, вы выиграли ", bet*2)
